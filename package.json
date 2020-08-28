@@ -1,0 +1,41 @@
+{
+  "name": "easy-storage-browser",
+  "version": "1.0.0",
+  "description": "简化浏览器 localStorage、sessionStorage、cookie 存储方式，自动做 JSON.parse、JSON.stringify 且保证存储前后数据类型一致，支持私有化存储，定时存储。",
+  "main": "./lib/index.js",
+  "scripts": {
+    "build": "rm -rf lib && npx babel src -d lib -x \".ts, .tsx\"",
+    "prepublish": "npm run build"
+  },
+  "files": [
+    "lib"
+  ],
+  "engines": {
+    "node": ">=8.0.0"
+  },
+  "keywords": [
+    "localStorage",
+    "sessionStorage",
+    "cookie"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lisong981174580/easy-storage-browser.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lisong981174580/easy-storage-browser/issues"
+  },
+  "homepage": "https://github.com/lisong981174580/easy-storage-browser#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.10.5",
+    "@babel/core": "^7.10.5",
+    "@babel/preset-env": "^7.10.4",
+    "@babel/preset-typescript": "^7.10.4",
+    "typescript": "^4.0.2"
+  },
+  "dependencies": {
+    "@babel/polyfill": "^7.10.4"
+  }
+}
