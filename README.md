@@ -13,18 +13,18 @@
 
 ## sessionStorage
 
-1.setSessionStorage(key: string, value: string|number|boolean|object|any[], personal?: string)
+1. setSessionStorage(key: string, value: string|number|boolean|object|any[], personal?: string)
 
-2.getSessionStorage(key: string,  personal?: string)
+2. getSessionStorage(key: string,  personal?: string)
 
-3.removeSessionStorage(key: string,  personal?: string)
+3. removeSessionStorage(key: string,  personal?: string)
 
-4.clearSessionStorage()
+4. clearSessionStorage()
 
 ## cookie
 
-1.setCookie(key: string, value: string | number | boolean | object | any[], exdays: number = 1)
+1. setCookie(key: string, value: string | number | boolean | object | any[], exdays: number = 1)
 
-2.getCookie(key: string)
+2. getCookie(key: string)
 
-3.removeCookie(key: string)
+3. removeCookie(key: string)
