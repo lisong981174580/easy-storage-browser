@@ -1,7 +1,15 @@
 # easy-storage-browser
 简化浏览器 localStorage、sessionStorage、cookie 存储方式，自动做 JSON.parse、JSON.stringify 且保证存储前后数据类型一致，支持私有化存储，定时存储。
 
-## localStorage
+## Installment
+
+```sh
+npm install easy-storage-browser --save
+```
+
+## Documentation
+
+### localStorage
 
 1. setLocalStorage(key: string, value: string|number|boolean|object|any[], personal?: string)
    
@@ -34,6 +42,8 @@
 #### Usage
 
 ```
+import { setLocalStorage, getLocalStorage, removeLocalStorage, clearLocalStorage } from 'easy-storage-browser';
+
 // 1.不带 personal
 // 存：
 setLocalStorage('key1', {a: 1, b: {c: 3}});  // 仅存储，无返回值, value 支持 string|number|boolean|object|array
@@ -60,7 +70,7 @@ removeLocalStorage('key1', 'uid_123456'); // 仅删除，无返回值
 clearLocalStorage() // 删除 setLocalStorage 存储的所有值，一个不留
 ```
 
-## sessionStorage
+### sessionStorage
 
 1. setSessionStorage(key: string, value: string|number|boolean|object|any[], personal?: string)
    
@@ -92,6 +102,8 @@ clearLocalStorage() // 删除 setLocalStorage 存储的所有值，一个不留
 #### Usage
 
 ```
+import { setSessionStorage, getSessionStorage, removeSessionStorage, clearSessionStorage } from 'easy-storage-browser';
+
 // 1.不带 personal
 // 存：
 setSessionStorage('key1', {a: 1, b: {c: 3}});  // 仅存储，无返回值，value 支持 string|number|boolean|object|array
@@ -118,7 +130,7 @@ removeSessionStorage('key1', 'uid_123456'); // 仅删除，无返回值
 clearSessionStorage() // 删除 setSessionStorage 存储的所有值，一个不留
 ```
 
-## cookie
+### cookie
 
 1. setCookie(key: string, value: string | number | boolean | object | any[], exdays: number = 1)
 
@@ -143,6 +155,8 @@ clearSessionStorage() // 删除 setSessionStorage 存储的所有值，一个不
 #### Usage
 
 ```
+import { setCookie, getCookie, removeCookie } from 'easy-storage-browser';
+
 // 存储 3 天，即 3天后失效
 setCookie('key2', {a: 1, b:{c:3, f: false}}, 3); // 仅存储，无返回值，value 支持 string|number|boolean|object|array
 
