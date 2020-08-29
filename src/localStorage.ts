@@ -1,3 +1,5 @@
+import { cycleDetector } from './utils';
+
 /**
  * @desc 在浏览器中长久存储 key/value 对的数据，即对 localStorage 再封装
  * @param {string} key 
@@ -12,6 +14,10 @@ export function setLocalStorage(
 ): void {
   if (typeof value === 'function' || value == null) {
     throw new Error('不支持 function、null、undefined 类型');
+  }
+
+  if (cycleDetector(value)) {
+    throw new Error(`入参${value}可能存在环，导致 JSON.stringify(value) 失败`);
   }
 
   window.localStorage.setItem(key + personal ? '_' + personal : '', JSON.stringify(value));

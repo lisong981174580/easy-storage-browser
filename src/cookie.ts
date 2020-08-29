@@ -1,3 +1,5 @@
+import { cycleDetector } from './utils';
+
 /**
  * @desc 在浏览器中以 cookie 方式存储 key/value 对的数据，即对 cookie 再封装，支持有效期，即定时存储
  * @param {string} key 
@@ -12,6 +14,10 @@ export function setCookie(
 ): void {
   if (typeof value === 'function' || value == null) {
     throw new Error('不支持 function、null、undefined 类型');
+  }
+
+  if (cycleDetector(value)) {
+    throw new Error(`入参${value}可能存在环，导致 JSON.stringify(value) 失败`);
   }
   
   // 为了安全考虑编码一次
