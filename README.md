@@ -30,7 +30,36 @@
    
    * @desc 删除 setLocalStorage 存储的所有值
    * @returns {void}
- 
+   
+#### Usage
+
+```
+// 1.不带 personal
+// 存：
+setLocalStorage('key1', {a: 1, b: {c: 3}});  // 仅存储，无返回值, value 支持 string|number|boolean|object|array
+
+// 取：
+getLocalStorage('key1'); // 原样返回 key1，{a: 1, b: {c: 3}}
+
+// 删：
+removeLocalStorage('key1'); // 仅删除，无返回值
+
+// 2.带 personal
+// 存：
+setLocalStorage('key1', {a: 1, b: {c: 3}}, 'uid_123456');  // 仅存储，无返回值，value 支持 string|number|boolean|object|array
+
+// 取：
+getLocalStorage('key1'); // 因为没有传 personal 故返回 null
+getLocalStorage('key1', 'uid_123456'); // 原样返回 key1，{a: 1, b: {c: 3}}
+
+// 删：
+removeLocalStorage('key1'); // 因为没有传 personal 故未能删除成功
+removeLocalStorage('key1', 'uid_123456'); // 仅删除，无返回值
+
+
+clearLocalStorage() // 删除 setLocalStorage 存储的所有值，一个不留
+```
+
 ## sessionStorage
 
 1. setSessionStorage(key: string, value: string|number|boolean|object|any[], personal?: string)
@@ -60,6 +89,35 @@
    * @desc 删除 setSessionStorage 存储的所有值
    * @returns {void}
   
+#### Usage
+
+```
+// 1.不带 personal
+// 存：
+setSessionStorage('key1', {a: 1, b: {c: 3}});  // 仅存储，无返回值，value 支持 string|number|boolean|object|array
+
+// 取：
+getSessionStorage('key1'); // 原样返回 key1，{a: 1, b: {c: 3}}
+
+// 删：
+removeSessionStorage('key1'); // 仅删除，无返回值
+
+// 2.带 personal
+// 存：
+setSessionStorage('key1', {a: 1, b: {c: 3}}, 'uid_123456');  // 仅存储，无返回值，value 支持 string|number|boolean|object|array
+
+// 取：
+getSessionStorage('key1'); // 因为没有传 personal 故返回 null
+getSessionStorage('key1', 'uid_123456'); // 原样返回 key1，{a: 1, b: {c: 3}}
+
+// 删：
+removeSessionStorage('key1'); // 因为没有传 personal 故未能删除成功
+removeSessionStorage('key1', 'uid_123456'); // 仅删除，无返回值
+
+
+clearSessionStorage() // 删除 setSessionStorage 存储的所有值，一个不留
+```
+
 ## cookie
 
 1. setCookie(key: string, value: string | number | boolean | object | any[], exdays: number = 1)
@@ -81,4 +139,17 @@
    * @desc 删除 setCookie 设置的 key 对应的 value
    * @param {string} key 
    * @returns {void}
+   
+#### Usage
+
+```
+// 存储 3 天，即 3天后失效
+setCookie('key2', {a: 1, b:{c:3, f: false}}, 3); // 仅存储，无返回值，value 支持 string|number|boolean|object|array
+
+// 取
+getCookie('key2') // 原样返回 key2, {a: 1, b:{c:3, f: false}}
+
+// 删
+removeCookie('key3') // 仅删除，无返回值
+```
 
