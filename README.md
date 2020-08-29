@@ -13,13 +13,13 @@
 
 ## sessionStorage
 
-1.setSessionStorage(key: string, value: any, personal?: string)
+1.setSessionStorage(key: string, value: string|number|boolean|object|any[], personal?: string)
 
 2.getSessionStorage(key: string,  personal?: string)
 
 3.removeSessionStorage(key: string,  personal?: string)
 
-4.clearSessionStorage(personal?: string)
+4.clearSessionStorage()
 
 ## cookie
 
