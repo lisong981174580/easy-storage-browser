@@ -11,14 +11,14 @@ export function setCookie(
   exdays: number = 1,
 ): void {
   if (typeof value === 'function' || value == null) {
-		throw new Error('不支持 function、null、undefined 类型');
+    throw new Error('不支持 function、null、undefined 类型');
   }
   
-	// 为了安全考虑编码一次
-	value = escape(JSON.stringify(value));
-	
-	// 将有效天数转化为毫秒
-	const millisecond = (exdays: number) => exdays * 24 * 60 * 60 * 1000;
+  // 为了安全考虑编码一次
+  value = escape(JSON.stringify(value));
+
+  // 将有效天数转化为毫秒
+  const millisecond = (exdays: number) => exdays * 24 * 60 * 60 * 1000;
 
   const date = new Date();
   date.setTime(date.getTime() + millisecond(exdays));
@@ -32,16 +32,16 @@ export function setCookie(
  * @returns {void}
  */
 export function getCookie(key: string): any {
-	key = `${key}=`;
-	const cookies = document.cookie.split(';');
+  key = `${key}=`;
+  const cookies = document.cookie.split(';');
 
   for (let i = 0; i < cookies.length; i++) {
-		const cookie = cookies[i].trim();
+    const cookie = cookies[i].trim();
 		
     if (cookie.indexOf(key) === 0) {
-			return JSON.parse(unescape(cookie.substring(key.length, cookie.length)));
-		}
-	}
+      return JSON.parse(unescape(cookie.substring(key.length, cookie.length)));
+    }
+  }
 	
   return null;
 }
@@ -53,11 +53,11 @@ export function getCookie(key: string): any {
  */
 export function removeCookie(key: string): void {
   const date = new Date();
-	date.setTime(date.getTime() - 1);
+    date.setTime(date.getTime() - 1);
 	
-	const value = getCookie(key);
+    const value = getCookie(key);
 
-	if (value !== null) {
-		document.cookie = `${key}=${value}; expires=${date.toUTCString()}`;
-	}
+    if (value !== null) {
+      document.cookie = `${key}=${value}; expires=${date.toUTCString()}`;
+    }
 }
