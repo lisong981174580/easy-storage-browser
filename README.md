@@ -3,13 +3,13 @@
 
 ## localStorage
 
-1. setLocalStorage(key: string, value: any, personal?: string)
+1. setLocalStorage(key: string, value: string|number|boolean|object|any[], personal?: string)
 
 2. getLocalStorage(key: string,  personal?: string)
 
 3. removeLocalStorage(key: string,  personal?: string)
 
-4. clearLocalStorage(personal?: string)
+4. clearLocalStorage()
 
 ## sessionStorage
 

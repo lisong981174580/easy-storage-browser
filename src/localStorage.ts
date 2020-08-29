@@ -27,3 +27,21 @@ export function getLocalStorage(key: string, personal?: string): any {
   // @ts-ignore
   return JSON.parse(window.localStorage.getItem(key + personal ? '_' + personal : ''));
 }
+
+/**
+ * @desc 删除 setLocalStorage 存储的某个值
+ * @param {string} key 
+ * @param {string} personal 可选参数，作为身份标识，如果 setLocalStorage 传了 personal，则此处必填
+ * @returns {void}
+ */
+export function removeLocalStorage(key: string, personal?: string): void {
+  window.localStorage.removeItem(key + personal ? '_' + personal : '');
+}
+
+/**
+ * @desc 删除 setLocalStorage 存储的所有值
+ * @returns {void}
+ */
+export function clearLocalStorage(): void {
+  window.localStorage.clear();
+}
