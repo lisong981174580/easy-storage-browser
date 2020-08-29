@@ -23,7 +23,7 @@
 
 ## cookie
 
-1.setCookie(key: string, value: any, effectiveDays: number )
+1.setCookie(key: string, value: string | number | boolean | object | any[], exdays: number = 1)
 
 2.getCookie(key: string)
 
