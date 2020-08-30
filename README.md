@@ -89,7 +89,7 @@ clearLocalStorage() // 删除 setLocalStorage 存储的所有值，一个不留
 4. clearSessionStorage()
    * @desc 删除 setSessionStorage 存储的所有值
    * @returns {void}
-  
+
 #### Usage
 
 ```js
@@ -152,5 +152,5 @@ setCookie('key2', {a: 1, b:{c:3, f: false}}, 3); // 仅存储，无返回值，v
 getCookie('key2') // 原样返回 key2, {a: 1, b:{c:3, f: false}}
 
 // 删
-removeCookie('key3') // 仅删除，无返回值
+removeCookie('key2') // 仅删除，无返回值
 ```
